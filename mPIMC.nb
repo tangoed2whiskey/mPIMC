@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    367655,       7910]
-NotebookOptionsPosition[    366583,       7869]
-NotebookOutlinePosition[    366955,       7885]
-CellTagsIndexPosition[    366912,       7882]
+NotebookDataLength[    367823,       7917]
+NotebookOptionsPosition[    366716,       7875]
+NotebookOutlinePosition[    367088,       7891]
+CellTagsIndexPosition[    367045,       7888]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,6 +22,12 @@ Notebook[{
 Cell[CellGroupData[{
 Cell["mPIMC", "Title",
  CellChangeTimes->{{3.7053944764560547`*^9, 3.7053944774743414`*^9}}],
+
+Cell["\<\
+Copyright (C) 2017 Thomas Whitehead
+\
+\>", "Text",
+ CellChangeTimes->{{3.7056632999808517`*^9, 3.7056633313332453`*^9}}],
 
 Cell["\<\
 This is mPIMC, a bosonic Path Integral Monte Carlo code written in \
@@ -7886,30 +7892,31 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 92, 1, 101, "Title"],
-Cell[675, 25, 874, 17, 125, "Text"],
-Cell[1552, 44, 1002, 20, 163, "Text"],
-Cell[2557, 66, 262, 5, 30, "Text"],
+Cell[675, 25, 130, 4, 49, "Text"],
+Cell[808, 31, 874, 17, 125, "Text"],
+Cell[1685, 50, 1002, 20, 163, "Text"],
+Cell[2690, 72, 262, 5, 30, "Text"],
 Cell[CellGroupData[{
-Cell[2844, 75, 94, 1, 70, "Section"],
-Cell[2941, 78, 417, 9, 30, "Input"],
-Cell[3361, 89, 303832, 6804, 23144, "Input",
+Cell[2977, 81, 94, 1, 70, "Section"],
+Cell[3074, 84, 417, 9, 30, "Input"],
+Cell[3494, 95, 303832, 6804, 23144, "Input",
  InitializationCell->True]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[307230, 6898, 98, 1, 56, "Section"],
-Cell[307331, 6901, 42166, 664, 525, "Input"]
+Cell[307363, 6904, 98, 1, 56, "Section"],
+Cell[307464, 6907, 42166, 664, 525, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[349534, 7570, 97, 1, 70, "Section"],
-Cell[349634, 7573, 8021, 139, 107, "Input"]
+Cell[349667, 7576, 97, 1, 70, "Section"],
+Cell[349767, 7579, 8021, 139, 107, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[357692, 7717, 99, 1, 70, "Section"],
-Cell[357794, 7720, 1348, 23, 30, "Input"]
+Cell[357825, 7723, 99, 1, 70, "Section"],
+Cell[357927, 7726, 1348, 23, 30, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[359179, 7748, 98, 1, 70, "Section"],
-Cell[359280, 7751, 7275, 114, 202, "Input"]
+Cell[359312, 7754, 98, 1, 70, "Section"],
+Cell[359413, 7757, 7275, 114, 202, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
