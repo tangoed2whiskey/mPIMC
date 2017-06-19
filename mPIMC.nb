@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    367823,       7917]
-NotebookOptionsPosition[    366716,       7875]
-NotebookOutlinePosition[    367088,       7891]
-CellTagsIndexPosition[    367045,       7888]
+NotebookDataLength[    368055,       7920]
+NotebookOptionsPosition[    366948,       7878]
+NotebookOutlinePosition[    367320,       7894]
+CellTagsIndexPosition[    367277,       7891]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5912,19 +5912,7 @@ routines\>\""}], ";"}], "\[IndentingNewLine]",
                RowBox[{"successBisect", "&&", 
                 RowBox[{"step", ">", "equilibrationsteps"}]}], ",", 
                RowBox[{"numsuccessesBisect", "++"}]}], "]"}], ";", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"numparticles", ">", "1"}], ",", 
-               RowBox[{
-                RowBox[{
-                 RowBox[{"If", "[", 
-                  RowBox[{
-                   RowBox[{"#", ">", "longestcycle"}], ",", 
-                   RowBox[{"longestcycle", "=", "#"}]}], "]"}], "&"}], "@", 
-                RowBox[{"(", 
-                 RowBox[{"First", "@", 
-                  RowBox[{"tarjan", "[", "joined", "]"}]}], ")"}]}]}], "]"}], 
-             ";", "\[IndentingNewLine]", 
+             "\[IndentingNewLine]", 
              RowBox[{"If", "[", 
               RowBox[{
                RowBox[{
@@ -5933,6 +5921,19 @@ routines\>\""}], ";"}], "\[IndentingNewLine]",
                 RowBox[{"step", "\[GreaterEqual]", "equilibrationsteps"}]}], 
                ",", "\[IndentingNewLine]", 
                RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"numparticles", ">", "1"}], ",", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"#", ">", "longestcycle"}], ",", 
+                    RowBox[{"longestcycle", "=", "#"}]}], "]"}], "&"}], "@", 
+                   RowBox[{"(", 
+                    RowBox[{"First", "@", 
+                    RowBox[{"tarjan", "[", "joined", "]"}]}], ")"}]}]}], 
+                 "]"}], ";", "\[IndentingNewLine]", 
                 RowBox[{"If", "[", 
                  RowBox[{"calculateEnergy", ",", "\[IndentingNewLine]", 
                   RowBox[{
@@ -6152,7 +6153,8 @@ selected!\>\"", "]"}]}], "]"}], ";"}]}], "]"}], ";",
        RowBox[{
         RowBox[{
          RowBox[{"numparticles", ">", "1"}], "&&", "calculateFracSameWell", "&&",
-          "calculatePairCorrelationFunction"}], ",", 
+          "calculatePairCorrelationFunction", "&&", 
+         RowBox[{"dimensionality", "\[Equal]", "2"}]}], ",", 
         RowBox[{"Print", "[", 
          RowBox[{
          "\"\<Fraction of particle pairs within same well is \>\"", ",", 
@@ -6461,7 +6463,7 @@ particle pairs are within the same potential minimum\>\""}],
             RowBox[{"{", 
              RowBox[{"x", ",", "0"}], "}"}], "]"}], ",", 
            RowBox[{"{", 
-            RowBox[{"x", ",", "0.1"}], "}"}]}], "]"}], "[", 
+            RowBox[{"x", ",", "0.01"}], "}"}]}], "]"}], "[", 
          RowBox[{"[", "2", "]"}], "]"}]}]}], ";", 
       RowBox[{"joinedlist", "=", 
        RowBox[{"Join", "@@", "vectorPairCorrelationFunctionsaverarray"}]}], 
@@ -6523,7 +6525,7 @@ lattice\>\""}], ";"}], "\[IndentingNewLine]",
 \!\(\*FractionBox[SuperscriptBox[\(\[HBar]\), \(2\)], \(2  m\)]\) for mass of \
 particles m\nkvec - the k in V Sin[k x] for periodic potential\nV - the V in \
 V Sin[k x] for periodic potential\na - scattering length\nRETURN - a real \
-number, the well depth constant for a Hubbard model\n\nhoppingt is used to \
+number, the well depth constant for a Hubbard model\n\nbarrierU is used to \
 calculate the well depth for a Hubbard-model equivalent of a studied \
 lattice\>\""}], ";", 
   RowBox[{
@@ -6896,9 +6898,10 @@ lattice\>\""}], ";",
    3.705122066158383*^9, 3.705122083581024*^9}, 3.70512246184326*^9, {
    3.70522956022797*^9, 3.7052297496633997`*^9}, 3.705233086850525*^9, {
    3.7053985710141916`*^9, 3.705398575607237*^9}, {3.705399259418619*^9, 
-   3.7053992679152517`*^9}, 3.7053995516864696`*^9},
+   3.7053992679152517`*^9}, 3.7053995516864696`*^9, {3.7068532576605496`*^9, 
+   3.706853286936988*^9}, {3.70685846982327*^9, 3.7068584829559655`*^9}},
  ExpressionUUID -> "2480ef09-f672-4e8b-b1e3-cb342103ff33"]
-}, Closed]],
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -7899,24 +7902,24 @@ Cell[2690, 72, 262, 5, 30, "Text"],
 Cell[CellGroupData[{
 Cell[2977, 81, 94, 1, 70, "Section"],
 Cell[3074, 84, 417, 9, 30, "Input"],
-Cell[3494, 95, 303832, 6804, 23144, "Input",
+Cell[3494, 95, 304064, 6807, 23125, "Input",
  InitializationCell->True]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[307363, 6904, 98, 1, 56, "Section"],
-Cell[307464, 6907, 42166, 664, 525, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[349667, 7576, 97, 1, 70, "Section"],
-Cell[349767, 7579, 8021, 139, 107, "Input"]
+Cell[307595, 6907, 98, 1, 70, "Section"],
+Cell[307696, 6910, 42166, 664, 525, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[357825, 7723, 99, 1, 70, "Section"],
-Cell[357927, 7726, 1348, 23, 30, "Input"]
+Cell[349899, 7579, 97, 1, 70, "Section"],
+Cell[349999, 7582, 8021, 139, 107, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[359312, 7754, 98, 1, 70, "Section"],
-Cell[359413, 7757, 7275, 114, 202, "Input"]
+Cell[358057, 7726, 99, 1, 70, "Section"],
+Cell[358159, 7729, 1348, 23, 30, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[359544, 7757, 98, 1, 70, "Section"],
+Cell[359645, 7760, 7275, 114, 202, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
