@@ -1,1 +1,3 @@
+(* ::Package:: *)
 
+Get["mPIMC`mPIMC`"];
