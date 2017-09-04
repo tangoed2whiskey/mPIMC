@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     69269,       1177]
-NotebookOptionsPosition[     68275,       1138]
-NotebookOutlinePosition[     68624,       1153]
-CellTagsIndexPosition[     68581,       1150]
+NotebookDataLength[     71242,       1229]
+NotebookOptionsPosition[     70245,       1190]
+NotebookOutlinePosition[     70594,       1205]
+CellTagsIndexPosition[     70551,       1202]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -50,8 +50,8 @@ to reduce statistical error bars in the results.
 
 Cell["\<\
 To use mPIMC, simply run each cell that you find when scrolling down this \
-notebook.  This will run a simple Path Integral Monte Carlo simulation of two \
-bosons in an harmonic trap.\[LineSeparator]
+notebook.  This will run a simple Path Integral Monte Carlo simulation of a \
+crystalline system in a harmonic trap.\[LineSeparator]
 
 To run your own simulation, modify the \[OpenCurlyDoubleQuote]Variables\
 \[CloseCurlyDoubleQuote] block using the descriptions of the keywords found \
@@ -70,7 +70,9 @@ will run a Path Integral Monte Carlo simulation using your given inputs.
 \>", "Text",
  CellChangeTimes->{{3.7053948577769203`*^9, 3.705395090586917*^9}, {
    3.7053982509681797`*^9, 3.705398256699975*^9}, 3.705401391020343*^9, 
-   3.713087530585023*^9, {3.71308761083923*^9, 3.7130876347640896`*^9}}],
+   3.713087530585023*^9, {3.71308761083923*^9, 3.7130876347640896`*^9}, {
+   3.7135048786774106`*^9, 3.7135049076736593`*^9}, {3.7135052001435204`*^9, 
+   3.7135052032095585`*^9}, {3.71350646393962*^9, 3.7135064761367188`*^9}}],
 
 Cell["\<\
 If you find a bug (or, even better, fix a bug) in this code, please let me \
@@ -133,35 +135,35 @@ Cell[BoxData[
      "more", " ", "lowers", " ", "the", " ", "temperature", "                    ",
        "Integer"}]}], "*)"}], 
    RowBox[{
-    RowBox[{"slices", "=", "30"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"slices", "=", "40"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Number", " ", "of", " ", "particles", " ", "to", " ", "include", " ", 
      "in", " ", "the", " ", "simulation", "                                    ",
       "Integer"}], "*)"}], 
    RowBox[{
-    RowBox[{"numparticles", "=", "2"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"numparticles", "=", "9"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Number", " ", "of", " ", "steps", " ", "to", " ", "run", " ", "the", " ",
       "simulation", " ", "for", "                                           ",
       "Integer"}], "*)"}], 
    RowBox[{
-    RowBox[{"numsteps", "=", "20000"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"numsteps", "=", "40000"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Number", " ", "of", " ", "steps", " ", "to", " ", "take", " ", "between",
       " ", "calculating", " ", "observables", "                             ",
       "Integer"}], "*)"}], 
    RowBox[{
-    RowBox[{"observablecalc", "=", "200"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"observablecalc", "=", "2000"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Number", " ", "of", " ", "steps", " ", "to", " ", "take", " ", "to", " ",
       "equilibrate", " ", "before", " ", "starting", " ", "calculating", " ", 
      "observables", "      ", "Integer"}], "*)"}], 
    RowBox[{
-    RowBox[{"equilibrationsteps", "=", "5000"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"equilibrationsteps", "=", "8000"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Smoothing", " ", "lengths", " ", "to", " ", "use", " ", "on", " ", 
@@ -261,7 +263,7 @@ Cell[BoxData[
      "in", " ", "an", " ", "harmonic", " ", "trap", "      ", "Boolean"}], 
     "*)"}], 
    RowBox[{
-    RowBox[{"harmonictrap", "=", "True"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"harmonictrap", "=", "False"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Whether", " ", "to", " ", "calculate", " ", "and", " ", "show", " ", 
@@ -283,7 +285,7 @@ Cell[BoxData[
      "of", " ", "particles", " ", "sitting", " ", "on", " ", "the", " ", 
      "same", " ", "lattice", " ", "site", "     ", "Boolean"}], "*)"}], 
    RowBox[{
-    RowBox[{"calculateFracSameWell", "=", "False"}], ";"}], 
+    RowBox[{"calculateFracSameWell", "=", "True"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -294,7 +296,7 @@ Cell[BoxData[
      "or", " ", "in", " ", "the", " ", "external", " ", "potential", "           ",
        "Real"}]}], "*)"}], 
    RowBox[{
-    RowBox[{"\[Omega]", "=", "1.0"}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{"\[Omega]", "=", "6.0"}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Range", " ", "over", " ", "which", " ", "to", " ", "look", " ", "for", 
@@ -302,7 +304,7 @@ Cell[BoxData[
      " ", "in", "                          ", "Real"}], "*)"}], 
    RowBox[{
     RowBox[{"startingRange", "=", 
-     RowBox[{"0.375", "\[Pi]"}]}], ";"}], "\[IndentingNewLine]", 
+     RowBox[{"0.55", "\[Pi]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Sample", " ", "spacing", " ", "for", " ", "identifying", " ", "minima", 
@@ -808,7 +810,9 @@ Cell[BoxData[
    3.7130887065098467`*^9}, {3.7130893879215026`*^9, 3.713089388038577*^9}, 
    3.7130894493252077`*^9, {3.713089518569363*^9, 3.7130895222217827`*^9}, {
    3.7130895996130943`*^9, 3.7130896001984777`*^9}, {3.713089957738658*^9, 
-   3.7130899584531317`*^9}},
+   3.7130899584531317`*^9}, 3.7135048421084642`*^9, {3.7135052081388283`*^9, 
+   3.713505244106077*^9}, {3.7135052758023014`*^9, 3.713505276035456*^9}, {
+   3.7135058499055996`*^9, 3.713505916550845*^9}},
  ExpressionUUID -> "631fe070-b9d8-48f1-97d6-4641ae4498a1"]
 }, Open  ]],
 
@@ -832,9 +836,24 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"mPIMC`Private`extV", "[", "pos_", "]"}], ":=", 
      RowBox[{
-      FractionBox["1", "2"], 
-      SuperscriptBox["\[Omega]", "2"], 
-      RowBox[{"pos", ".", "pos"}]}]}], ";"}], "\[IndentingNewLine]", 
+      RowBox[{
+       FractionBox["1", "2"], 
+       SuperscriptBox["\[Omega]", "2"], " ", 
+       RowBox[{"pos", ".", "pos"}]}], "+", 
+      RowBox[{"40.", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox[
+          RowBox[{"Sin", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], "2"], "+", 
+         SuperscriptBox[
+          RowBox[{"Sin", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}], "2"]}], ")"}]}]}]}], 
+    ";"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "The", " ", "gradient", " ", "of", " ", "the", " ", "external", " ", 
@@ -845,7 +864,29 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"mPIMC`Private`derivExtV", "[", "pos_", "]"}], ":=", 
      RowBox[{
-      SuperscriptBox["\[Omega]", "2"], " ", "pos"}]}], ";"}], 
+      RowBox[{
+       SuperscriptBox["\[Omega]", "2"], " ", "pos"}], "+", 
+      RowBox[{"40.", "*", "2.", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"4.", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}], 
+          RowBox[{"Cos", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], ",", 
+         RowBox[{"4.", 
+          RowBox[{"Sin", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}], 
+          RowBox[{"Cos", "[", 
+           RowBox[{"4.", 
+            RowBox[{"pos", "[", 
+             RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}]}], "}"}]}]}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -859,7 +900,17 @@ Cell[BoxData[
    RowBox[{
     RowBox[{
      RowBox[{"mPIMC`Private`intpartV", "[", 
-      RowBox[{"pos1_", ",", "pos2_"}], "]"}], ":=", "0."}], ";"}], 
+      RowBox[{"pos1_", ",", "pos2_"}], "]"}], ":=", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"pos1", "-", "pos2"}], ")"}], ".", 
+         RowBox[{"(", 
+          RowBox[{"pos1", "-", "pos2"}], ")"}]}], "<", 
+        SuperscriptBox["0.1", "2"]}], ",", 
+       SuperscriptBox["10", "6."], ",", "0."}], "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
@@ -976,7 +1027,8 @@ Cell[BoxData[
    3.706874667922979*^9, {3.706876071461043*^9, 3.7068760926881337`*^9}, {
    3.7068773484104614`*^9, 3.706877350272696*^9}, {3.7068797926432*^9, 
    3.706879794574484*^9}, {3.713087567586559*^9, 3.7130875705104914`*^9}, {
-   3.7130877788796124`*^9, 3.713087814222041*^9}},
+   3.7130877788796124`*^9, 3.713087814222041*^9}, {3.7135046410667005`*^9, 
+   3.713504690717663*^9}, {3.7135057991826043`*^9, 3.7135058255080795`*^9}},
  ExpressionUUID -> "231e53cd-63e3-4c16-b1a5-c968ffbbb598"]
 }, Open  ]],
 
@@ -1156,27 +1208,27 @@ Cell[CellGroupData[{
 Cell[580, 22, 92, 1, 101, "Title"],
 Cell[675, 25, 130, 4, 49, "Text"],
 Cell[808, 31, 874, 17, 125, "Text"],
-Cell[1685, 50, 1223, 22, 182, "Text"],
-Cell[2911, 74, 262, 5, 30, "Text"],
+Cell[1685, 50, 1387, 24, 182, "Text"],
+Cell[3075, 76, 262, 5, 30, "Text"],
 Cell[CellGroupData[{
-Cell[3198, 83, 100, 1, 70, "Section"],
-Cell[3301, 86, 118, 2, 30, "Input"]
+Cell[3362, 85, 100, 1, 70, "Section"],
+Cell[3465, 88, 118, 2, 30, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[3456, 93, 98, 1, 70, "Section"],
-Cell[3557, 96, 45889, 715, 525, "Input"]
+Cell[3620, 95, 98, 1, 70, "Section"],
+Cell[3721, 98, 46065, 717, 525, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[49483, 816, 97, 1, 70, "Section"],
-Cell[49583, 819, 9625, 160, 127, "Input"]
+Cell[49823, 820, 97, 1, 70, "Section"],
+Cell[49923, 823, 11255, 208, 132, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[59245, 984, 99, 1, 70, "Section"],
-Cell[59347, 987, 1417, 25, 50, "Input"]
+Cell[61215, 1036, 99, 1, 70, "Section"],
+Cell[61317, 1039, 1417, 25, 50, "Input"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[60801, 1017, 98, 1, 70, "Section"],
-Cell[60902, 1020, 7345, 114, 202, "Input"]
+Cell[62771, 1069, 98, 1, 70, "Section"],
+Cell[62872, 1072, 7345, 114, 202, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
